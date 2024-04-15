@@ -1,22 +1,18 @@
 class Solution {
 public:
     int sumNumbers(TreeNode* root) {
-        int result = 0;
-        dfs(root, 0, result);
-        return result;
+        return dfs(root, 0);
     }
 
 private:
-    void dfs(TreeNode* node, int currSum, int& result) {
-        if (!node) return;
+    int dfs(TreeNode* node, int currSum) {
+        if (!node) return 0;
 
         currSum = currSum * 10 + node -> val;
         if (!node -> left && !node -> right) {
-            result += currSum;
-            return;
+            return currSum;
         }
 
-        dfs(node -> left, currSum, result);
-        dfs(node -> right, currSum, result);
+        return dfs(node -> left, currSum) + dfs(node -> right, currSum);
     }
 };
