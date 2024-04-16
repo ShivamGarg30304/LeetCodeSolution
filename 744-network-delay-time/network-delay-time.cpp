@@ -28,10 +28,7 @@ public:
         int ans = INT_MIN;
         for (int i = 1; i <= n; i++) {
             ans = max(ans, dist[i]);
-            cout << dist[i] << " ";
         }
         return (ans == 1e9) ? -1 : ans;
-        cout << endl;
-        return 0;
     }
 };
