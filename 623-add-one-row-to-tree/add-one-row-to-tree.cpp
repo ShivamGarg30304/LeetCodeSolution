@@ -26,14 +26,6 @@ public:
         }
         if(depth==0)
         {
-            // TreeNode *leftChild = root -> left;
-            // TreeNode *rightChild = root -> right;
-            // TreeNode *newLeftParent = new TreeNode(val);
-            // TreeNode *newRightParent = new TreeNode(val);
-            // root -> left = newLeftParent;
-            // newLeftParent -> left = leftChild;
-            // root -> right = newRightParent;
-            // newRightParent -> right = rightChild;
             TreeNode* store1;
             if(root->left)store1=root->left;
             {TreeNode* a=new TreeNode(val);
