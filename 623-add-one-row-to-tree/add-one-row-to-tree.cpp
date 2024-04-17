@@ -26,25 +26,25 @@ public:
         }
         if(depth==0)
         {
-            TreeNode *leftChild = root -> left;
-            TreeNode *rightChild = root -> right;
-            TreeNode *newLeftParent = new TreeNode(val);
-            TreeNode *newRightParent = new TreeNode(val);
-            root -> left = newLeftParent;
-            newLeftParent -> left = leftChild;
-            root -> right = newRightParent;
-            newRightParent -> right = rightChild;
-            // TreeNode* store1;
-            // if(root->left)store1=root->left;
-            // {TreeNode* a=new TreeNode(val);
-            // root->left=a;
-            // a->left=store1;}
+            // TreeNode *leftChild = root -> left;
+            // TreeNode *rightChild = root -> right;
+            // TreeNode *newLeftParent = new TreeNode(val);
+            // TreeNode *newRightParent = new TreeNode(val);
+            // root -> left = newLeftParent;
+            // newLeftParent -> left = leftChild;
+            // root -> right = newRightParent;
+            // newRightParent -> right = rightChild;
+            TreeNode* store1;
+            if(root->left)store1=root->left;
+            {TreeNode* a=new TreeNode(val);
+            root->left=a;
+            a->left=store1;}
 
-            // TreeNode*store2;
-            // if(root->right) store2=root->right;
-            // {TreeNode* b=new TreeNode(val);
-            // root->right=b;
-            // b->right=store2;  
+            TreeNode*store2;
+            if(root->right) store2=root->right;
+            {TreeNode* b=new TreeNode(val);
+            root->right=b;
+            b->right=store2;  }
             
         }
         // if(depth==0 and root->left==NULL)
