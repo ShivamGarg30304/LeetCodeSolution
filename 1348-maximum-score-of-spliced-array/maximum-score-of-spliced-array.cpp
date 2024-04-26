@@ -4,7 +4,6 @@ class Solution {
         int ans = 0, sum = 0;
         for (int i = 0; i < n; i++) {
             sum += (a[i] - b[i]);
-            cout << sum << endl;
             ans = max(ans, sum);
             sum = max(0, sum);
         }
