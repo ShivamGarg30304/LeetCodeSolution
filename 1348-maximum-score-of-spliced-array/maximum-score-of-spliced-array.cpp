@@ -11,6 +11,8 @@ class Solution {
     }
 public:
     int maximumsSplicedArray(vector<int>& nums1, vector<int>& nums2) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
         int sum1 = accumulate(nums1.begin(), nums1.end(), 0);
         int sum2 = accumulate(nums2.begin(), nums2.end(), 0);
         int ans1 = sum1 + maxSum(nums2, nums1);
