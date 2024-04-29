@@ -2,9 +2,7 @@ class Solution {
 public:
     int minOperations(vector<int>& nums, int k) {
         int n = nums.size();
-        map<int, int> mp;
-        map<int, int> mp2;
-        map<int, int> mp3;
+        vector<int> mp(30, 0), mp2(30, 0);
         for (int i = 0; i < 30; i++) {
             for (int j = 0; j < n; j++) {
                 int newnum = 1 << i;
