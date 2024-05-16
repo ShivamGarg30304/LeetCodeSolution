@@ -33,10 +33,8 @@ public:
         ans = 0;
         for (auto vec : dp) {
             for (auto p : vec) {
-                cout << p << " ";
                 ans = max(ans, p);
             }
-            cout << endl;
         }
         return ans;
     }
