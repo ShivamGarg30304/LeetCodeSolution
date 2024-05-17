@@ -1,5 +1,5 @@
 class Solution {
-    vector<int> kmp(string s) {
+    vector<int> kmp(string &s) {
         vector<int> lps(s.size(), 0);
         for (int i = 1; i < lps.size(); i++) {
             int prev_idx = lps[i - 1];
@@ -13,7 +13,7 @@ class Solution {
         return lps;
     }
 public:
-    vector<int> beautifulIndices(string s, string a, string b, int k) {
+    vector<int> beautifulIndices(string &s, string &a, string &b, int k) {
         string sa = a + "#" + s;
         string sb = b + "#" + s;
         vector<int> va, vb;
