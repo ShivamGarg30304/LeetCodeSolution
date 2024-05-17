@@ -33,10 +33,8 @@ public:
         for (int i = b.size(); i < v.size(); i++) {
             int el = v[i];
             if (el == b.size()) {
-                cout << "j" << endl;
                 int id = i - 2 * b.size();
                 if (id >= 0) {
-                    cout << "jhh" << endl;
                     vb.push_back(id);
                 }
             }
