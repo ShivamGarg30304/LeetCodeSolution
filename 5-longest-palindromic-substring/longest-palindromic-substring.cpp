@@ -1,34 +1,32 @@
 class Solution {
-    int dp[1001][1001];
-    bool solve(string &s, int l, int r) {
-        if (l >= r) {
-            return 1;
-        }
-        if (dp[l][r] != -1) return dp[l][r];
-        
-        if (s[l] == s[r]) {
-            return dp[l][r] = solve(s, l + 1, r - 1);
-        } else {
-            return false;
-        }
-    }
 public:
     string longestPalindrome(string s) {
-        int n = s.size();
-        int maxLen = INT_MIN;
-        int startingIndex = 0;
-        memset(dp, -1, sizeof(dp));
+        if (s.length() <= 1) {
+            return s;
+        }
 
-        for (int i = 0; i < n; i++) {
-            for (int j = i; j < n; j++) {
-                if (solve(s, i, j)) {
-                    if (j - i + 1 > maxLen) {
-                        startingIndex = i;
-                        maxLen = j - i + 1;
-                    }
-                }
+        auto expand_from_center = [&](int left, int right) {
+            while (left >= 0 && right < s.length() && s[left] == s[right]) {
+                left--;
+                right++;
+            }
+            return s.substr(left + 1, right - left - 1);
+        };
+
+        string max_str = s.substr(0, 1);
+
+        for (int i = 0; i < s.length() - 1; i++) {
+            string odd = expand_from_center(i, i);
+            string even = expand_from_center(i, i + 1);
+
+            if (odd.length() > max_str.length()) {
+                max_str = odd;
+            }
+            if (even.length() > max_str.length()) {
+                max_str = even;
             }
         }
-        return s.substr(startingIndex, maxLen);
+
+        return max_str;
     }
 };
