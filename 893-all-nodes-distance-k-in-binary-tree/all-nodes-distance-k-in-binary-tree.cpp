@@ -1,12 +1,3 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
 class Solution {
     void kDown(TreeNode* root, int k, TreeNode* blockNode, vector<int> &ans) {
         if (root == NULL || k < 0 || root == blockNode) return;
