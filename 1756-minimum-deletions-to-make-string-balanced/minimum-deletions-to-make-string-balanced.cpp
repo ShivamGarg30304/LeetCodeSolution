@@ -1,18 +1,22 @@
 class Solution {
 public:
     int minimumDeletions(string s) {
-        int n = s.length(), a_count = 0;
-        for (int i = 0; i < n; i++) {
-            a_count += (s[i] == 'a');
-        }
+        int n = s.length();
+        vector<int> dp(n + 1, 0);
         int b_count = 0;
-        int min_deletions = n;
+
+        // dp[i]: The number of deletions required to
+        // balance the substring s[0, i)
         for (int i = 0; i < n; i++) {
-            a_count -= (s[i] == 'a');
-            min_deletions = min(min_deletions, a_count + b_count);
-            b_count += (s[i] == 'b');
+            if (s[i] == 'b') {
+                dp[i + 1] = dp[i];
+                b_count++;
+            } else {
+                // Two cases: remove 'a' or keep 'a'
+                dp[i + 1] = min(dp[i] + 1, b_count);
+            }
         }
 
-        return min_deletions;
+        return dp[n];
     }
 };
