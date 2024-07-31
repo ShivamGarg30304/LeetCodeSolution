@@ -3,17 +3,13 @@ public:
     int firstMissingPositive(vector<int>& nums) {
         int n = nums.size();
         for (int i = 0; i < n; i++) {
-            if (nums[i] <= 0 || nums[i] > n) {
-                nums[i] = n + 1;
+            if (nums[i] >= 1 && nums[i] <= n && nums[i] != nums[nums[i] - 1]) {
+                swap(nums[i], nums[nums[i] - 1]);
+                i--;
             }
         }
         for (int i = 0; i < n; i++) {
-            if (abs(nums[i]) == n + 1) continue;
-            int value = abs(nums[i]) - 1;
-            if (nums[value] > 0) nums[value] = -nums[value];
-        }
-        for (int i = 0; i < n; i++) {
-            if (nums[i] > 0) return i + 1;
+            if (nums[i] != i + 1) return i + 1;
         }
         return n + 1;
     }
